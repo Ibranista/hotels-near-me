@@ -3,7 +3,17 @@ import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 // component import
 import Banner from "../components/banner";
-export default function Home() {
+
+// fetcher method
+
+export async function getStaticProps(context) {
+  // const data = fetch()
+  return {
+    props: {}, // will be passed to the page component as props
+  };
+}
+
+export default function Home(props) {
   return (
     <>
       <div className={styles.container}>
