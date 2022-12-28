@@ -1,10 +1,8 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
-
-const inter = Inter({ subsets: ["latin"] });
-
+// component import
+import Banner from "../components/banner";
 export default function Home() {
   return (
     <>
@@ -16,6 +14,7 @@ export default function Home() {
         <main className={styles.main}>
           <h1 className={styles.title}>Hello World</h1>
           <h1>hello</h1>
+          <Banner />
         </main>
         <footer className={styles.footer}>Footer</footer>
       </div>
