@@ -8,9 +8,13 @@ module.exports = {
     "./pages/**/*.{js,jsx,ts,tsx}",
     "./components/**/*.{js,jsx,ts,tsx}",
     "./pages/*{js,jsx,ts,tsx}",
+    "./node_modules/flowbite/**/*.js",
+    "./pages/**/*.{ts,tsx}",
+    "./public/**/*.html",
+    "./node_modules/flowbite-react/**/*.js",
   ],
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("flowbite/plugin")],
 };
