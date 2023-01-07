@@ -43,3 +43,25 @@
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
 }
+
+.navbar {
+  background: black;
+}
+
+.nav-links {
+  color: white !important;
+  cursor: pointer;
+}
+
+.nav-links:hover {
+  color: black !important;
+  background: white !important;
+}
+
+/* media query above 768px */
+@media (min-width: 768px) {
+  .nav-links:hover {
+    background: none !important;
+    color: rgb(212, 212, 212) !important;
+  }
+}
