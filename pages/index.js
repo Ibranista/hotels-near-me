@@ -5,7 +5,7 @@ import styles from "../styles/Home.module.css";
 import Hero from "../components/Hero";
 import Banner from "../components/banner";
 import Image from "next/image";
-
+import Link from "next/link";
 // fetcher method
 
 export async function getStaticProps(context) {
@@ -15,16 +15,30 @@ export async function getStaticProps(context) {
   };
 }
 
-export default function Home(props) {
+export default function Home() {
+  const handleOnBannerBtnClick = () => {
+    console.log("Banner Clicked");
+  };
+
   return (
     <>
       <div className="font-Inter">
         <Head>
           <title>Hotels Near Me</title>
-          <link rel="stylesheet" href="/favicon.ico" />
         </Head>
+        <h1 className="relative z-50">
+          <Link
+            href="/details/helloworld"
+            className="hover:bg-blue-500 font-bold px-10"
+          >
+            To the dynamic route
+          </Link>
+        </h1>
         <main className="relative">
-          <Banner />
+          <Banner
+            buttonText="Find Nearest Hotels in My Area"
+            handleOnClick={handleOnBannerBtnClick}
+          />
         </main>
         <Hero />
         <footer className={styles.footer}>Footer</footer>

@@ -5,13 +5,13 @@ import { Navbar } from "flowbite-react";
 function NavBar() {
   return (
     <div className="px-10 bg-black">
-      <Navbar fluid={true} className="navbar">
+      <Navbar fluid={true} className="navbar container m-auto">
         <Navbar.Brand href="#">
           <svg width="40" viewBox="0 0 150 150" className="s-1j8o68f">
             <defs id="SvgjsDefs1648">
               <linearGradient id="SvgjsLinearGradient1653">
-                <stop id="SvgjsStop1654" stop-color="#ffffff" offset="0"></stop>
-                <stop id="SvgjsStop1655" stop-color="#000080" offset="1"></stop>
+                <stop id="SvgjsStop1654" stopColor="#ffffff" offset="0"></stop>
+                <stop id="SvgjsStop1655" stopColor="#000080" offset="1"></stop>
               </linearGradient>
             </defs>
             <g
@@ -31,7 +31,7 @@ function NavBar() {
           </span>
         </Navbar.Brand>
         <Navbar.Toggle />
-        <Navbar.Collapse>
+        <Navbar.Collapse className="transition-all ease-in delay-150 bg-slate-900 absolute  top-[3.5em] right-0 z-[60] sm:top-auto sm:right-auto sm:relative h-screen sm:h-fit w-[80%] backdrop-blur-sm bg-opacity-80">
           <Navbar.Link className="nav-links" href="/navbars">
             Home
           </Navbar.Link>
