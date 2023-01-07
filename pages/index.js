@@ -15,16 +15,22 @@ export async function getStaticProps(context) {
   };
 }
 
-export default function Home(props) {
+export default function Home() {
+  const handleOnBannerBtnClick = () => {
+    console.log("Banner Clicked");
+  };
+
   return (
     <>
       <div className="font-Inter">
         <Head>
           <title>Hotels Near Me</title>
-          <link rel="stylesheet" href="/favicon.ico" />
         </Head>
         <main className="relative">
-          <Banner />
+          <Banner
+            buttonText="Find Nearest Hotels in My Area"
+            handleOnClick={handleOnBannerBtnClick}
+          />
         </main>
         <Hero />
         <footer className={styles.footer}>Footer</footer>
