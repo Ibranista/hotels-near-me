@@ -5,7 +5,7 @@ import styles from "../styles/Home.module.css";
 import Hero from "../components/Hero";
 import Banner from "../components/banner";
 import Image from "next/image";
-
+import Link from "next/link";
 // fetcher method
 
 export async function getStaticProps(context) {
@@ -26,6 +26,14 @@ export default function Home() {
         <Head>
           <title>Hotels Near Me</title>
         </Head>
+        <h1 className="relative z-50">
+          <Link
+            href="/details/helloworld"
+            className="hover:bg-blue-500 font-bold px-10"
+          >
+            To the dynamic route
+          </Link>
+        </h1>
         <main className="relative">
           <Banner
             buttonText="Find Nearest Hotels in My Area"
