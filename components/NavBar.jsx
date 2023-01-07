@@ -6,7 +6,7 @@ function NavBar() {
   return (
     <div className="px-10 bg-black">
       <Navbar fluid={true} className="navbar">
-        <Navbar.Brand href="https://flowbite.com/">
+        <Navbar.Brand href="#">
           <svg width="40" viewBox="0 0 150 150" className="s-1j8o68f">
             <defs id="SvgjsDefs1648">
               <linearGradient id="SvgjsLinearGradient1653">
@@ -26,7 +26,7 @@ function NavBar() {
               ></path>
             </g>
           </svg>
-          <span className="self-center whitespace-nowrap text-xl font-semibold  text-white">
+          <span className="hover:text-gray-500 self-center whitespace-nowrap text-xl font-semibold  text-white">
             Hotelspot
           </span>
         </Navbar.Brand>

@@ -14,7 +14,12 @@ module.exports = {
     "./node_modules/flowbite-react/**/*.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        Irish: ["Irish Grover", "cursive"],
+        Inter: ["Inter", "sans-serif"],
+      },
+    },
   },
   plugins: [require("flowbite/plugin")],
 };
