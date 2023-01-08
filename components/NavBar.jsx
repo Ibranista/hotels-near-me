@@ -5,7 +5,7 @@ import { Navbar } from "flowbite-react";
 function NavBar() {
   return (
     <div className="px-10 bg-black">
-      <Navbar fluid={true} className="navbar">
+      <Navbar fluid={true} className="navbar container m-auto">
         <Navbar.Brand href="#">
           <svg width="40" viewBox="0 0 150 150" className="s-1j8o68f">
             <defs id="SvgjsDefs1648">

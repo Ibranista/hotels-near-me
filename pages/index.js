@@ -46,6 +46,11 @@ export default function Home(props) {
               imgUrl="/HotelBanner.jpg"
               href="/details/crown-hotel"
             />
+            <Card
+              name="Hotel 1"
+              imgUrl="/HotelBanner.jpg"
+              href="/details/crown-hotel"
+            />
           </section>
         </main>
         <Hero />
