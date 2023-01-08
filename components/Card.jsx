@@ -61,18 +61,19 @@ function Card(props) {
             </ReadMoreReadLess>
           </div>
         </div>
-        <div className="button-wrapper">
-          <Link href={props.href}>
+        <Link href={props.href}>
+          <div className="button-wrapper flex gap-5 justify-start ml-3">
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 1 }}
               initial={{ scale: 0.9 }}
               animate={{ scale: 1.1 }}
               className="text-[#D9D9D9] bg-black px-2 rounded-sm 
-                hover:shadow-blue-900 hover:border-blue-800 hover:text-white hover:bg-[#2C3A50]
-                shadow-lg
-                border-b-2
-                "
+              hover:shadow-blue-900 hover:border-blue-800 hover:text-black 
+              hover:bg-white
+              shadow-lg
+              border-b-2
+              "
             >
               Details
             </motion.button>
@@ -81,16 +82,17 @@ function Card(props) {
               whileTap={{ scale: 1 }}
               initial={{ scale: 0.9 }}
               animate={{ scale: 1.1 }}
-              className="text-[#D9D9D9] bg-black px-2 rounded-sm
-                hover:shadow-blue-900 hover:border-blue-800 hover:text-white hover:bg-[#2C3A50]
+              className="text-[#D9D9D9] bg-black px-2 rounded-sm 
+                hover:shadow-blue-900 hover:border-blue-800 hover:text-black 
+                hover:bg-white
                 shadow-lg
                 border-b-2
                 "
             >
               $150 per day
             </motion.button>
-          </Link>
-        </div>
+          </div>
+        </Link>
       </div>
     </>
   );
