@@ -19,6 +19,11 @@ module.exports = {
         Irish: ["Irish Grover", "cursive"],
         Inter: ["Inter", "sans-serif"],
       },
+      backgroundImage: {
+        "hero-pattern": "url('/svg/mobile-mountain.svg')",
+        "desktop-pattern": "url('/svg/desktop-mountain.svg')",
+        "banner": "url('/HotelBanner.jpg')",
+      },
     },
   },
   plugins: [require("flowbite/plugin")],
