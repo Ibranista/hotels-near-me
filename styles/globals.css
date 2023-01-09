@@ -65,3 +65,37 @@
     color: rgb(212, 212, 212) !important;
   }
 }
+
+.custom-shape-divider-top-1673200510 {
+  position: absolute;
+  top: -105px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  rotate: 180deg;
+}
+
+.custom-shape-divider-top-1673200510 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 106px;
+  animation: widthAnimation 40s linear infinite;
+}
+
+.custom-shape-divider-top-1673200510 .shape-fill {
+  fill: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
+@keyframes widthAnimation {
+  0% {
+    width: calc(100% + 1.3px);
+  }
+  50% {
+    width: calc(150% + 1.3px);
+  }
+  100% {
+    width: calc(100% + 1.3px);
+  }
+}
