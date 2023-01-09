@@ -99,3 +99,7 @@
     width: calc(100% + 1.3px);
   }
 }
+
+.card-wrapper:hover .image-cover {
+  opacity: 0;
+}

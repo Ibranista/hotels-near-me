@@ -39,18 +39,29 @@ function Card(props) {
       {/* use readmorereadless component here */}
 
       <div
-        className="relative z-[800] pb-3  w-[250px] sm:w-[300px]  items-center top-20 text-black hover:text-white font-Inter leading-8 hover:bg-slate-800
+        className="card-wrapper relative z-[800] pb-3  w-[250px] sm:w-[300px]  items-center top-20 text-black hover:text-white font-Inter leading-8 hover:bg-slate-800
       border-b-2 border-white hover:border-blue-900 border-4 hover:shadow-2xl  h-[460px] rounded-lg
       overflow-auto scroll-smooth scroll-p-1 transition-all duration-300 cursor-pointer ease-linear
+      hover:scale-105
       "
       >
-        <Image
-          src={props.imgUrl}
-          alt={props.name}
-          height={160}
-          width={300}
-          className="relative"
-        />
+        <div
+          class="relative overflow-hidden bg-no-repeat bg-cover max-w-xs"
+          data-mdb-ripple="true"
+          data-mdb-ripple-color="light"
+        >
+          <Image
+            src={props.imgUrl}
+            alt={props.name}
+            height={160}
+            width={300}
+            className="relative"
+          />
+          <div
+            class="image-cover absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-100 transition duration-300 ease-in-out"
+            style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" }}
+          ></div>
+        </div>
         <div className="box-wrapper px-5 pt-3">
           <h1 className="font-bold text-2xl mb-2">{props.name}</h1>
 
