@@ -31,8 +31,8 @@ export default function Home(props) {
             bg-gray-100
             "
             >
-              <h1 className="text-left w-1/2 -ml-96 absolute text-2xl font-bold top-10 tracking-widest">
-                Addis Ababa Hotels
+              <h1 className="pl-24 w-full text-right md:text-left md:w-1/2 -ml-96 absolute text-2xl font-bold top-10 tracking-widest">
+                Addis Ababa Hotel
               </h1>
               {props.hotels.map((hotel) => {
                 return (

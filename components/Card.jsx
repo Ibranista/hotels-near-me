@@ -44,9 +44,10 @@ function Card(props) {
       overflow-auto scroll-smooth scroll-p-1 transition-all duration-300 cursor-pointer ease-linear
       hover:scale-105
       "
+        title={props.name}
       >
         <div
-          class="relative overflow-hidden bg-no-repeat bg-cover max-w-xs"
+          className="relative overflow-hidden bg-no-repeat bg-cover max-w-xs"
           data-mdb-ripple="true"
           data-mdb-ripple-color="light"
         >
@@ -58,7 +59,7 @@ function Card(props) {
             className="relative"
           />
           <div
-            class="image-cover absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-100 transition duration-300 ease-in-out"
+            className="image-cover absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-100 transition duration-300 ease-in-out"
             style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" }}
           ></div>
         </div>
