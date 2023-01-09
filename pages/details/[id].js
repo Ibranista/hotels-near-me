@@ -22,19 +22,29 @@ export async function getStaticPaths() {
   };
 }
 
-function Simple(props) {
-  console.log(props);
+function HotelDetails(props) {
   const router = useRouter();
   const Id = router.query.id;
+  const {name,id,description,star} = props.hotels;
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+
+  if (!props.hotels) {
+    return <div>Error: Hotel not found</div>;
+  }
+
   return (
     <div>
-      Simple
+      HotelDetails
       <Link href="/">Back to Home</Link>
       <h1>url name:{Id}</h1>
-      <h1>{props.hotels.name}</h1>
-      <h1>{props.hotels.id}</h1>
+      <h1>{name}</h1>
+      <h1>{id}</h1>
+      <h1>{description}</h1>
+      <h1>{star}</h1>
     </div>
   );
 }
 
-export default Simple;
+export default HotelDetails;
