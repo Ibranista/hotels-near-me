@@ -7,6 +7,7 @@ import Banner from "../components/banner";
 import Image from "next/image";
 import Card from "../components/Card";
 import hotels from "../data/hotels.json";
+import Link from "next/link";
 
 export async function getStaticProps(context) {
   return {
@@ -14,7 +15,11 @@ export async function getStaticProps(context) {
   };
 }
 
-export default function Home(props) {
+export default function Home() {
+  const handleOnBannerBtnClick = () => {
+    console.log("Banner Clicked");
+  };
+
   return (
     <>
       <div className="font-Inter">
@@ -83,6 +88,19 @@ export default function Home(props) {
               />
             </section>
           )}
+        <h1 className="relative z-50">
+          <Link
+            href="/details/helloworld"
+            className="hover:bg-blue-500 font-bold px-10"
+          >
+            To the dynamic route
+          </Link>
+        </h1>
+        <main className="relative">
+          <Banner
+            buttonText="Find Nearest Hotels in My Area"
+            handleOnClick={handleOnBannerBtnClick}
+          />
         </main>
         <Hero />
         <footer className={styles.footer}>Footer</footer>
