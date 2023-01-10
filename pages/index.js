@@ -8,7 +8,7 @@ import Image from "next/image";
 import Card from "../components/Card";
 import hotels from "../data/hotels.json";
 import { Places } from "../lib/Places-data";
-
+import { LoaderExample } from "../components/loading";
 export async function getStaticProps(context) {
   let ImportedData = await Places();
   return {
@@ -26,12 +26,12 @@ export default function Home(props) {
         <Head>
           <title>Hotels Near Me</title>
         </Head>
-        <main className="relative bg-banner bg-fixed">
+        <main className="relative bg-banner bg-no-repeat bg-cover bg-fixed">
           <Banner />
           {hotels.length > 0 ? (
             <section
               className="
-            bg-hero-pattern sm:bg-desktop-pattern relative z-[80] w-full -top-72 flex gap-5
+            bg-hero-pattern sm:bg-desktop-pattern bg-no-repeat relative z-[80] w-full -top-72 flex gap-5
             items-center justify-center pt-10 sm:pt-5 pb-32 px-5 flex-wrap
             bg-gray-100
             "

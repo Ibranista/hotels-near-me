@@ -8,6 +8,7 @@ const nextConfig = {
       "you.com",
       "links.papareact.com",
       "cdn.flowbite.com",
+      "images.unsplash.com",
     ],
   },
 };

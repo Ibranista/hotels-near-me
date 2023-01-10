@@ -39,10 +39,9 @@ function Card(props) {
   return (
     <>
       {/* use readmorereadless component here */}
-
       <div
         className="card-wrapper relative z-[800] pb-3  w-[250px] sm:w-[300px]  items-center top-20 text-black hover:text-white font-Inter leading-8 hover:bg-slate-800
-      border-b-2 border-white hover:border-blue-900 border-4 hover:shadow-2xl  h-[460px] rounded-lg
+      border-b-2 border-white hover:border-blue-900 border-4 hover:shadow-2xl  h-[490px] rounded-lg
       overflow-auto scroll-smooth scroll-p-1 transition-all duration-200 cursor-pointer ease-linear
       hover:scale-105
       "
@@ -58,7 +57,7 @@ function Card(props) {
             alt={name}
             height={160}
             width={300}
-            className="relative"
+            className="relative w-full h-64 rounded-b-sm"
           />
           <div
             className="image-cover absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-100 transition duration-300 ease-in-out"
