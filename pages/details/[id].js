@@ -35,7 +35,6 @@ function HotelDetails(props) {
   let places = props.hotels;
   const { address, country, neighborhood, fsq_id, dma, postcode } =
     places.location;
-  console.log("The Places: ", places);
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
