@@ -7,10 +7,17 @@ import Banner from "../components/banner";
 import Image from "next/image";
 import Card from "../components/Card";
 import hotels from "../data/hotels.json";
+import { Places } from "../lib/Places-data";
 
 export async function getStaticProps(context) {
+  const data = await results.json();
+  let ImportedData = await Places();
+  console.log("imported", ImportedData);
   return {
-    props: { hotels }, // will be passed to the page component as props
+    // props: { hotels }, // will be passed to the page component as props
+    props: {
+      hotels: ImportedData,
+    },
   };
 }
 
@@ -37,13 +44,13 @@ export default function Home(props) {
               {props.hotels.map((hotel) => {
                 return (
                   <Card
-                    key={hotel.id}
+                    key={hotel.fsq_id}
                     name={hotel.name}
-                    imgUrl={hotel.imgUrl}
-                    href={`/details/${hotel.id}`}
-                    description={hotel.description}
-                    alt={hotel.alt}
-                    star={hotel.star}
+                    imgUrl={hotel.imgUrl || "/HotelBanner.jpg"}
+                    href={`/details/${hotel.fsq_id}`}
+                    {...hotel}
+                    alt={hotel.name}
+                    star={hotel.categories.length}
                   />
                 );
               })}
