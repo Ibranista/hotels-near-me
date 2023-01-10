@@ -26,7 +26,7 @@ function ReadMoreReadLess({ children, maxCharCount = 100 }) {
           onClick={toggleIsTruncated}
           className="text-blue-500 hover:cursor-pointer"
         >
-          {isTruncated ? " ...read more" : " read less"}
+          {isTruncated ? " ...read more" : "...read less"}
         </span>
       )}
     </p>
@@ -34,6 +34,8 @@ function ReadMoreReadLess({ children, maxCharCount = 100 }) {
 }
 
 function Card(props) {
+  // console.log(props);
+  const { name, imgUrl, star } = props;
   return (
     <>
       {/* use readmorereadless component here */}
@@ -44,7 +46,7 @@ function Card(props) {
       overflow-auto scroll-smooth scroll-p-1 transition-all duration-300 cursor-pointer ease-linear
       hover:scale-105
       "
-        title={props.name}
+        title={name}
       >
         <div
           className="relative overflow-hidden bg-no-repeat bg-cover max-w-xs"
@@ -52,8 +54,8 @@ function Card(props) {
           data-mdb-ripple-color="light"
         >
           <Image
-            src={props.imgUrl}
-            alt={props.name}
+            src={imgUrl}
+            alt={name}
             height={160}
             width={300}
             className="relative"
@@ -64,12 +66,24 @@ function Card(props) {
           ></div>
         </div>
         <div className="box-wrapper px-5 pt-3">
-          <h1 className="font-bold text-2xl mb-2">{props.name}</h1>
+          <h1 className="font-bold text-2xl mb-2">{name}</h1>
 
-          <h3 className="font-semibold">{props.star} </h3>
+          <h3 className="font-semibold">
+            A {star} ⭐ {name}
+          </h3>
           <div className="text-left">
             <ReadMoreReadLess maxCharCount={100}>
-              {props.description}
+              {`
+              ${name} is a ${props.categories[0].name} and is located at
+              ${props.location.address} in ${props.location.country} around
+              ${props.location.dma}. neightborhood: ${
+                props.location.neighborhood
+              }
+              ${
+                Object.keys(props.related_places).length > 0
+                  ? `includes:${props.related_places.parent.name}}`
+                  : ""
+              }`}
             </ReadMoreReadLess>
           </div>
         </div>
