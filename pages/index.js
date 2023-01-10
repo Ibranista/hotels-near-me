@@ -10,9 +10,7 @@ import hotels from "../data/hotels.json";
 import { Places } from "../lib/Places-data";
 
 export async function getStaticProps(context) {
-  const data = await results.json();
   let ImportedData = await Places();
-  console.log("imported", ImportedData);
   return {
     // props: { hotels }, // will be passed to the page component as props
     props: {
