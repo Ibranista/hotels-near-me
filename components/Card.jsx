@@ -43,7 +43,7 @@ function Card(props) {
       <div
         className="card-wrapper relative z-[800] pb-3  w-[250px] sm:w-[300px]  items-center top-20 text-black hover:text-white font-Inter leading-8 hover:bg-slate-800
       border-b-2 border-white hover:border-blue-900 border-4 hover:shadow-2xl  h-[460px] rounded-lg
-      overflow-auto scroll-smooth scroll-p-1 transition-all duration-300 cursor-pointer ease-linear
+      overflow-auto scroll-smooth scroll-p-1 transition-all duration-200 cursor-pointer ease-linear
       hover:scale-105
       "
         title={name}
