@@ -103,3 +103,12 @@
 .card-wrapper:hover .image-cover {
   opacity: 0;
 }
+
+.card-wrapper::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.card-wrapper::-webkit-scrollbar-thumb {
+  background-color: aliceblue;
+  border-radius: 1rem;
+}
