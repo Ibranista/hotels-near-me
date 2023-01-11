@@ -8,7 +8,7 @@ import Image from "next/image";
 import Card from "../components/Card";
 import hotels from "../data/hotels.json";
 import { Places } from "../lib/Places-data";
-import { LoaderExample } from "../components/loading";
+
 export async function getStaticProps(context) {
   let ImportedData = await Places();
   return {
