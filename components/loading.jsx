@@ -20,9 +20,6 @@ const Loader = styled(motion.div)`
 export const LoaderExample = () => {
   const [isLoading, setIsLoading] = useState(true);
 
-  const loading = () => {
-    setIsLoading(!isLoading);
-  };
   return (
     <Loader className="bg-slate-800">
       <FontAwesomeIcon
