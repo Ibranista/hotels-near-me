@@ -10,7 +10,6 @@ const Loader = styled(motion.div)`
   right: 0;
   left: 0;
   bottom: 0;
-  background: #18315b;
   color: white;
   display: flex;
   align-items: center;
@@ -25,7 +24,7 @@ export const LoaderExample = () => {
     setIsLoading(!isLoading);
   };
   return (
-    <Loader>
+    <Loader className="bg-slate-800">
       <FontAwesomeIcon
         icon={faSpinner}
         className="animate-spin text-9xl text-slate-500"
