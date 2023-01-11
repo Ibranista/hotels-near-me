@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import { motion } from "framer-motion";
 
 config.autoAddCss = false;
 // importing components
@@ -34,9 +35,14 @@ export default function App({ Component, pageProps }) {
     return <LoaderExample />;
   }
   return (
-    <div className="min-w-[270px]">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+     className="min-w-[270px]">
       <NavBar />
       <Component {...pageProps} />
-    </div>
+    </motion.div>
   );
 }
