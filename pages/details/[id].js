@@ -49,7 +49,9 @@ function HotelDetails(props) {
     <div>
       <Head>{/* <title>{name}</title> */}</Head>
       HotelDetails
-      <Link href="/">Back to Home</Link>
+      <Link href="/" scroll={false}>
+        Back to Home
+      </Link>
       <h1>url name that's defined by the URL:{Id}</h1>
       {/* <h1>{name}</h1> */}
       {/* <h1>ID:{fsq_id}</h1> */}

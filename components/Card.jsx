@@ -86,7 +86,7 @@ function Card(props) {
             </ReadMoreReadLess>
           </div>
         </div>
-        <Link href={props.href}>
+        <Link href={props.href} scroll={false}>
           <div className="button-wrapper flex gap-5 justify-start ml-3">
             <motion.button
               whileHover={{ scale: 1.1 }}

@@ -30,30 +30,28 @@ export default function Home(props) {
   const { handleTrackLocation, latLong, locationErrorMsg, isFindingLocation } =
     useTrackLocation();
 
-  const fetchData = async () => {
-    try {
-      const places = await Places();
-      console.log(places);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const fetchData = async () => {
+  //   try {
+  //     const places = await Places();
+  //     console.log(places);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    if (latLong) {
-      try {
-        fetchData();
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  }, [latLong]);
+  // useEffect(() => {
+  //   if (latLong) {
+  //     try {
+  //       fetchData();
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  // }, [latLong]);
 
   const handleButtonClick = () => {
     handleTrackLocation();
-    console.log("latlong:", latLong);
-    console.log("clicked");
-    console.log(locationErrorMsg);
+    console.log(latLong?latLong:'loading...');
   };
   return (
     <>
@@ -62,6 +60,12 @@ export default function Home(props) {
           <title>Hotels Near Me</title>
         </Head>
         <main className="relative bg-banner bg-no-repeat bg-cover bg-fixed">
+          <button
+            onClick={handleButtonClick}
+            className="px-5 rounded-md py-5 bg-blue-500 text-2xl font-extrabold text-white relative z-[9000]"
+          >
+            {isFindingLocation ? "Locating..." : "view Location"}
+          </button>
           <Banner />
 
           {hotels.length > 0 ? (
@@ -75,9 +79,6 @@ export default function Home(props) {
               <h1 className="pl-24 w-full text-right md:text-left md:w-1/2 -ml-96 absolute text-2xl font-bold top-10 tracking-widest">
                 Coffee Shops Around Addis
               </h1>
-              <button onClick={handleButtonClick} className="bg-blue-500">
-                {isFindingLocation ? "Locating..." : "view Location"}
-              </button>
               {props.hotels.map((hotel) => {
                 return (
                   <Card
