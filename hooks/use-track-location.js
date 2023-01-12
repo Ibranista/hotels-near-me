@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
-const useTrackLoaction = () => {
+const useTrackLocation = () => {
   const [locationErrorMsg, setLocationErrorMsg] = useState("");
   const [latLong, setLatLong] = useState("");
+  const [isFindingLocation, setFindingLocation] = useState("");
   // crete success and error methods
   const success = (position) => {
     const latitude = position.coords.latitude;
@@ -10,15 +11,22 @@ const useTrackLoaction = () => {
 
     setLatLong(`${latitude},${longitude}`);
     setLocationErrorMsg("");
+    setFindingLocation(false);
   };
 
   const error = () => {
-    setLocationErrorMsg("Unable to set location");
+    setFindingLocation(false);
+    setLocationErrorMsg(
+      "you've blocked geolocation from accessing your location or  it's unable to retrieve it!"
+    );
   };
 
-  const handleTrackLocation = (location) => {
+  const handleTrackLocation = () => {
+    setFindingLocation(true);
     if (!navigator.geolocation) {
+      setFindingLocation(false);
       setLocationErrorMsg("Geolocation is not available for this browser !");
+      return;
     } else {
       navigator.geolocation.getCurrentPosition(success, error);
     }
@@ -27,7 +35,9 @@ const useTrackLoaction = () => {
     locationErrorMsg,
     latLong,
     handleTrackLocation,
+    setFindingLocation,
+    isFindingLocation
   };
 };
 
-export default useTrackLoaction;
+export default useTrackLocation;

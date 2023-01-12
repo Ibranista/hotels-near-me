@@ -112,3 +112,22 @@
   background-color: aliceblue;
   border-radius: 1rem;
 }
+
+.whole-container::-webkit-scrollbar {
+  width: 1rem;
+  background-color: rgb(59, 69, 78);
+  transition: ease 1s;
+}
+
+.whole-container::-webkit-scrollbar-thumb {
+  background-color: rgb(156, 178, 197);
+  border-radius: 1rem;
+  transition: ease 1s;
+}
+.whole-container::-webkit-scrollbar:hover {
+  background-color: rgb(31, 53, 73);
+}
+
+.whole-container::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(205, 205, 205);
+}

@@ -40,7 +40,8 @@ export default function App({ Component, pageProps }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
-     className="min-w-[270px]">
+      className="min-w-[270px] whole-container scroll-smooth h-screen overflow-auto"
+    >
       <NavBar />
       <Component {...pageProps} />
     </motion.div>

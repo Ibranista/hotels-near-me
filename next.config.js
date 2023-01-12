@@ -9,6 +9,7 @@ const nextConfig = {
       "links.papareact.com",
       "cdn.flowbite.com",
       "images.unsplash.com",
+      "api.unsplash.com",
     ],
   },
 };

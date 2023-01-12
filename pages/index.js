@@ -2,12 +2,13 @@ import Head from "next/head";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 // component import
-import Hero from "../components/Hero";
 import Banner from "../components/banner";
 import Image from "next/image";
 import Card from "../components/Card";
 import hotels from "../data/hotels.json";
 import { Places } from "../lib/Places-data";
+import useTrackLocation from "../hooks/use-track-location";
+import { useEffect } from "react";
 
 export async function getStaticProps(context) {
   let ImportedData = await Places();
@@ -19,15 +20,50 @@ export async function getStaticProps(context) {
   };
 }
 
+// const handleBannerBtnClick = () => {
+//   console.log("object");
+//   // handleTrackLocation();
+//   console.log("latitue: ", latLong);
+// };
+
 export default function Home(props) {
+  const { handleTrackLocation, latLong, locationErrorMsg, isFindingLocation } =
+    useTrackLocation();
+
+  const fetchData = async () => {
+    try {
+      const places = await Places();
+      console.log(places);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (latLong) {
+      try {
+        fetchData();
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }, [latLong]);
+
+  const handleButtonClick = () => {
+    handleTrackLocation();
+    console.log("latlong:", latLong);
+    console.log("clicked");
+    console.log(locationErrorMsg);
+  };
   return (
     <>
-      <div className="font-Inter">
+      <div className="font-Inter  whole-container scroll-smooth overflow-auto">
         <Head>
           <title>Hotels Near Me</title>
         </Head>
         <main className="relative bg-banner bg-no-repeat bg-cover bg-fixed">
           <Banner />
+
           {hotels.length > 0 ? (
             <section
               className="
@@ -37,8 +73,11 @@ export default function Home(props) {
             "
             >
               <h1 className="pl-24 w-full text-right md:text-left md:w-1/2 -ml-96 absolute text-2xl font-bold top-10 tracking-widest">
-                Addis Ababa Hotel
+                Coffee Shops Around Addis
               </h1>
+              <button onClick={handleButtonClick} className="bg-blue-500">
+                {isFindingLocation ? "Locating..." : "view Location"}
+              </button>
               {props.hotels.map((hotel) => {
                 return (
                   <Card
@@ -89,7 +128,6 @@ export default function Home(props) {
             </section>
           )}
         </main>
-        <Hero />
         <footer className={styles.footer}>Footer</footer>
       </div>
     </>
