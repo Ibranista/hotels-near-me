@@ -27,31 +27,13 @@ export async function getStaticProps(context) {
 // };
 
 export default function Home(props) {
-  const { handleTrackLocation, latLong, locationErrorMsg, isFindingLocation } =
+  const { latLong, locationErrorMsg, handleTrackLocation, fetchingLocation } =
     useTrackLocation();
-
-  // const fetchData = async () => {
-  //   try {
-  //     const places = await Places();
-  //     console.log(places);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   if (latLong) {
-  //     try {
-  //       fetchData();
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   }
-  // }, [latLong]);
-
+  useEffect(() => {
+    console.log(latLong);
+  }, [latLong]);
   const handleButtonClick = () => {
     handleTrackLocation();
-    console.log(latLong?latLong:'loading...');
   };
   return (
     <>
@@ -64,7 +46,7 @@ export default function Home(props) {
             onClick={handleButtonClick}
             className="px-5 rounded-md py-5 bg-blue-500 text-2xl font-extrabold text-white relative z-[9000]"
           >
-            {isFindingLocation ? "Locating..." : "view Location"}
+            {fetchingLocation ? "Fetching Location..." : "Track Location"}
           </button>
           <Banner />
 
