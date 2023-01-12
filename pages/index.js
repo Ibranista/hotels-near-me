@@ -5,7 +5,6 @@ import styles from "../styles/Home.module.css";
 import Banner from "../components/banner";
 import Image from "next/image";
 import Card from "../components/Card";
-import hotels from "../data/hotels.json";
 import { Places } from "../lib/Places-data";
 import useTrackLocation from "../hooks/use-track-location";
 import { useEffect } from "react";
@@ -30,7 +29,13 @@ export default function Home(props) {
   const { latLong, locationErrorMsg, handleTrackLocation, fetchingLocation } =
     useTrackLocation();
   useEffect(() => {
-    console.log(latLong);
+    if (latLong) {
+      (async () => {
+        await Places(latLong);
+        // console.log("sendLAtData: ", data);
+        console.log({ latLong });
+      })();
+    }
   }, [latLong]);
   const handleButtonClick = () => {
     handleTrackLocation();
@@ -50,7 +55,7 @@ export default function Home(props) {
           </button>
           <Banner />
 
-          {hotels.length > 0 ? (
+          {props.hotels.length > 0 ? (
             <section
               className="
             bg-hero-pattern sm:bg-desktop-pattern bg-no-repeat relative z-[80] w-full -top-72 flex gap-5
@@ -97,8 +102,8 @@ export default function Home(props) {
           items-center justify-center
           "
             >
-              <h1 className="absolute font-bold text-2xl sm:text-4xl md:text-8xl text-white text-center text-opacity-80 animate-pulse">
-                No Hotels Around this Area!
+              <h1 className="absolute font-bold text-2xl sm:text-xl md:text-4xl lg:text-8xl text-white md:text-left text-opacity-80 animate-pulse w-1/2">
+                No Coffee-Shops are registered on map Around this Area!
               </h1>
               <Image
                 width={1920}
