@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 // import framermotion
@@ -34,6 +34,8 @@ function ReadMoreReadLess({ children, maxCharCount = 100 }) {
 }
 
 function Card(props) {
+  const scrollRef = useRef(null);
+
   // console.log(props);
   const { name, imgUrl, star } = props;
   return (
@@ -46,8 +48,13 @@ function Card(props) {
       hover:scale-105
       "
         title={name}
+        style={{ overflow: "scroll" }}
       >
-        <div
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ root: scrollRef }}
+          transition = {{ duration: 0.5 }}
           className="relative overflow-hidden bg-no-repeat bg-cover max-w-xs"
           data-mdb-ripple="true"
           data-mdb-ripple-color="light"
@@ -63,7 +70,7 @@ function Card(props) {
             className="image-cover absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-100 transition duration-300 ease-in-out"
             style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" }}
           ></div>
-        </div>
+        </motion.div>
         <div className="box-wrapper px-5 pt-3">
           <h1 className="font-bold text-2xl mb-2">{name}</h1>
 
