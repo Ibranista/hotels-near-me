@@ -10,9 +10,12 @@ export async function getStaticProps(staticProps) {
   let ImportedData = await Places();
   console.log("imported data: ", ImportedData);
   const params = staticProps.params;
+  const findPlaceById = ImportedData.find(
+    (place) => place.fsq_id === params.id
+  );
   return {
     props: {
-      hotels: ImportedData.find((place) => place.fsq_id === params.id),
+      hotels: findPlaceById ? findPlaceById : {},
     },
   };
 }

@@ -10,7 +10,9 @@ const useTrackLocation = () => {
 
     setLatLong(`${latitude},${longitude}`);
     setLocationErrorMsg("");
-    setFetchingLocation(false);
+    setTimeout(() => {
+      setFetchingLocation(false);
+    }, 1500);
   };
 
   const error = () => {
