@@ -20,7 +20,8 @@ module.exports = {
       backgroundImage: {
         "hero-pattern": "url('/svg/mobile-mountain.svg')",
         "desktop-pattern": "url('/svg/desktop-mountain.svg')",
-        "banner": "url('/HotelBanner.jpg')",
+        banner: "url('/HotelBanner.jpg')",
+        logo: "url('/svg/logo.svg')",
       },
     },
   },

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 // import framermotion
@@ -26,7 +26,7 @@ function ReadMoreReadLess({ children, maxCharCount = 100 }) {
           onClick={toggleIsTruncated}
           className="text-blue-500 hover:cursor-pointer"
         >
-          {isTruncated ? " ...read more" : " read less"}
+          {isTruncated ? " ...read more" : "...read less"}
         </span>
       )}
     </p>
@@ -34,34 +34,66 @@ function ReadMoreReadLess({ children, maxCharCount = 100 }) {
 }
 
 function Card(props) {
+  const scrollRef = useRef(null);
+
+  // console.log(props);
+  const { name, imgUrl, star } = props;
   return (
     <>
       {/* use readmorereadless component here */}
-
       <div
-        className="relative z-[800] pb-3  w-[250px] sm:w-[300px]  items-center top-20 text-black hover:text-white font-Inter leading-8 hover:bg-slate-800
-      border-b-2 border-white hover:border-blue-900 border-4 hover:shadow-2xl  h-[460px] rounded-lg
-      overflow-auto scroll-smooth scroll-p-1 transition-all duration-300 cursor-pointer ease-linear
+        className="card-wrapper relative z-[800] pb-3  w-[250px] sm:w-[300px]  items-center top-20 text-black hover:text-white font-Inter leading-8 hover:bg-slate-800
+      border-b-2 border-white hover:border-blue-900 border-4 hover:shadow-2xl  h-[490px] rounded-lg
+      overflow-auto scroll-smooth scroll-p-1 transition-all duration-200 cursor-pointer ease-linear
+      hover:scale-105
       "
+        title={name}
+        style={{ overflow: "scroll" }}
       >
-        <Image
-          src={props.imgUrl}
-          alt={props.name}
-          height={160}
-          width={300}
-          className="relative"
-        />
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ root: scrollRef }}
+          transition = {{ duration: 0.5 }}
+          className="relative overflow-hidden bg-no-repeat bg-cover max-w-xs"
+          data-mdb-ripple="true"
+          data-mdb-ripple-color="light"
+        >
+          <Image
+            src={imgUrl}
+            alt={name}
+            height={160}
+            width={300}
+            className="relative w-full h-64 rounded-b-sm"
+          />
+          <div
+            className="image-cover absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-100 transition duration-300 ease-in-out"
+            style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" }}
+          ></div>
+        </motion.div>
         <div className="box-wrapper px-5 pt-3">
-          <h1 className="font-bold text-2xl mb-2">{props.name}</h1>
+          <h1 className="font-bold text-2xl mb-2">{name}</h1>
 
-          <h3 className="font-semibold">{props.star} </h3>
+          <h3 className="font-semibold">
+            A {star} ⭐ {name}
+          </h3>
           <div className="text-left">
             <ReadMoreReadLess maxCharCount={100}>
-              {props.description}
+              {`
+              ${name} is a ${props.categories[0].name} and is located at
+              ${props.location.address} in ${props.location.country} around
+              ${props.location.dma}. neightborhood: ${
+                props.location.neighborhood
+              }
+              ${
+                Object.keys(props.related_places).length > 0
+                  ? `includes:${props.related_places.parent.name}}`
+                  : ""
+              }`}
             </ReadMoreReadLess>
           </div>
         </div>
-        <Link href={props.href}>
+        <Link href={props.href} scroll={false}>
           <div className="button-wrapper flex gap-5 justify-start ml-3">
             <motion.button
               whileHover={{ scale: 1.1 }}

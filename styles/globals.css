@@ -99,3 +99,32 @@
     width: calc(100% + 1.3px);
   }
 }
+
+.card-wrapper:hover .image-cover {
+  opacity: 0;
+}
+
+.card-wrapper::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.card-wrapper::-webkit-scrollbar-thumb {
+  background-color: aliceblue;
+  border-radius: 1rem;
+}
+
+.whole-container::-webkit-scrollbar {
+  width: 0.7rem;
+  background-color: rgb(243 244 246);
+  transition: ease 1s;
+}
+
+.whole-container::-webkit-scrollbar-thumb {
+  background-color: rgb(205, 205, 205);
+  border-radius: 1rem;
+  transition: ease 1s;
+}
+
+.whole-container::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(122, 122, 122);
+}
