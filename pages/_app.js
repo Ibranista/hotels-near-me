@@ -58,8 +58,8 @@ export default function App({ Component, pageProps }) {
       transition={{ duration: 1 }}
       className="min-w-[270px] whole-container scroll-smooth h-screen overflow-auto"
     >
-      <NavBar />
       <StoreProvider>
+        <NavBar />
         <Component {...pageProps} />
       </StoreProvider>
     </motion.div>
