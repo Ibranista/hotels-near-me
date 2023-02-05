@@ -4,11 +4,13 @@ import useTrackLocation from "../hooks/use-track-location";
 
 function Banner() {
 
+import Image from "next/image";
+
+function Banner(props) {
   return (
     <>
       <section className="banner-wrapper text-white h-screen">
         <div className="absolute bg-black opacity-70 inset-0 z-20 text-white"></div>
-
         <div className="relative z-50 text-white container m-auto pt-10 px-3 sm:pb-5 lg:pt-16">
           <h1 className="font-Irish mb-5 text-center text-2xl tracking-wider sm:text-left lg:text-4xl">
             Find Your Best Accomodation
@@ -28,6 +30,7 @@ function Banner() {
             // onClick={handleBannerBtnClick}
           >
             Find Nearest Hotels in My Area
+
           </motion.button>
         </div>
       </section>

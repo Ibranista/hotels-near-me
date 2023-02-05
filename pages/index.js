@@ -9,6 +9,7 @@ import { Places, getListOfPlacesPhotos } from "../lib/Places-data";
 import useTrackLocation from "../hooks/use-track-location";
 import { useEffect, useState } from "react";
 
+
 export async function getStaticProps(context) {
   let ImportedData = await Places();
   return {
@@ -17,12 +18,6 @@ export async function getStaticProps(context) {
     },
   };
 }
-
-// const handleBannerBtnClick = () => {
-//   console.log("object");
-//   // handleTrackLocation();
-//   console.log("latitue: ", latLong);
-// };
 
 export default function Home(props) {
   const { latLong, locationErrorMsg, handleTrackLocation, fetchingLocation } =
@@ -179,6 +174,19 @@ export default function Home(props) {
               />
             </section>
           )}
+        <h1 className="relative z-50">
+          <Link
+            href="/details/helloworld"
+            className="hover:bg-blue-500 font-bold px-10"
+          >
+            To the dynamic route
+          </Link>
+        </h1>
+        <main className="relative">
+          <Banner
+            buttonText="Find Nearest Hotels in My Area"
+            handleOnClick={handleOnBannerBtnClick}
+          />
         </main>
         <footer className={styles.footer}>Footer</footer>
       </div>
