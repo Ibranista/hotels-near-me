@@ -12,7 +12,6 @@ import { useEffect, useState } from "react";
 export async function getStaticProps(context) {
   let ImportedData = await Places();
   return {
-    // props: { hotels }, // will be passed to the page component as props
     props: {
       hotels: ImportedData,
     },
@@ -49,6 +48,7 @@ export default function Home(props) {
       })();
     }
   }, [latLong]);
+  
   let [display, setDisplay] = useState("hidden");
   const handleButtonClick = () => {
     handleTrackLocation();
