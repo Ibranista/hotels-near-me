@@ -33,9 +33,7 @@ export default function Home(props) {
   useEffect(() => {
     if (latLong) {
       (async () => {
-        let fetchedPlaces = await Places(
-          "15.426843717204196,44.16992541575953"
-        );
+        let fetchedPlaces = await Places(latLong);
         await getListOfPlacesPhotos("saudi hotel");
         setPlaces(fetchedPlaces);
         // console.log("sendLAtData: ", data);

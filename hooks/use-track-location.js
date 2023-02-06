@@ -7,7 +7,8 @@ const useTrackLocation = () => {
   const success = (position) => {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
-
+    console.log("Latitude is :", latitude);
+    console.log("Longitude is :", longitude);
     setLatLong(`${latitude},${longitude}`);
     setLocationErrorMsg("");
     setTimeout(() => {
